@@ -17,7 +17,7 @@ useEffect(() => {
 
 
   return (
-    <Link to="/products/lund">
+    <Link to="/products/val">
       <div className="container pb-24 mx-auto">
         <h1 className="my-8 font-bold text-3xl">Products</h1>
           <div className='grid grid-cols-5 my-8 gap-24 '>
