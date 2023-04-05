@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom'
 const Navigation = () => {
     const cartstyle = {
         background : '#F59E0D',
-        display : 'flex'
+        display : 'flex',
+        padding : '6px 12px',
+        borderRadius : '50px'// border-radius : '50px' u can't write in js like this so use camelcase instead of hyphen
     }
   return (
     <>
@@ -13,12 +15,12 @@ const Navigation = () => {
             </Link>
             <ul className="flex items-center">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/products">Products</Link></li>
-                <li>
+                <li className='ml-5'><Link to="/about">About</Link></li>
+                <li className='ml-5'><Link to="/products">Products</Link></li>
+                <li className='ml-5'>
                     <Link to="/cart">
                         <div style={cartstyle}>
-                            <span>10</span>
+                            <span className="mr-2">10</span>
                             <img src="/images/cart.png" alt="cart-icon" />
                         </div>
                     </Link>
