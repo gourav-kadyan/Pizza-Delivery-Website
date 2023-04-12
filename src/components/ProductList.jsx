@@ -1,7 +1,7 @@
 import React from 'react'
 import Product from './Product'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+
 
 const ProductList = () => {
 
@@ -17,7 +17,6 @@ useEffect(() => {
 
 
   return (
-    <Link to="/products/val">
       <div className="container pb-24 mx-auto">
         <h1 className="my-8 font-bold text-3xl">Products</h1>
           <div className='grid grid-cols-5 my-8 gap-24 '>
@@ -26,7 +25,6 @@ useEffect(() => {
             }
           </div>
       </div>
-    </Link>
   )
 }
 
