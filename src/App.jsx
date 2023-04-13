@@ -12,9 +12,15 @@ function App(){
     useEffect(() => {
         const cart = window.localStorage.getItem('cart')
     },[])
+
+    useEffect(() => {
+        window.localStorage.setItem('cart', JSON.stringify(cart))  //update when cart changes
+    },[cart])
+
+
     return <>
         <Router>
-            {/* <CartContext.Provider value={{name : "Gourav Kadyan"}}> */}
+            <CartContext.Provider value={{ cart, setCart }}>
             <Navigation />
             <Routes>
                 <Route exact path="/" element={<Home/>} />
@@ -23,7 +29,7 @@ function App(){
                 <Route path="/product/:_id" element={<Detail/>}></Route>
                 <Route path="/cart" element={<Cart/>}></Route>
             </Routes>
-            {/* </CartContext.Provider> */}
+            </CartContext.Provider>
         </Router>
     </>
 }

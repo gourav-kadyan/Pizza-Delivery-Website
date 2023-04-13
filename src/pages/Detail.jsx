@@ -15,7 +15,7 @@ const Detail = () => {
     .then(res => res.json())
     .then(product => {
         setProduct(product)
-        console.log(product)
+        //console.log(product)
     })
   }, [params._id])
   return (
