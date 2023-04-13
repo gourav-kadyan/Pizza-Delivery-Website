@@ -5,9 +5,16 @@ import Navigation from './components/Navigation'
 import Products from './pages/Products'
 import Cart from './pages/Cart'
 import Detail from './pages/Detail'
+import { CartContext } from './CartContext'
+import { useEffect, useState } from 'react'
 function App(){
+    const [cart, setCart ] = useState({})
+    useEffect(() => {
+        const cart = window.localStorage.getItem('cart')
+    },[])
     return <>
         <Router>
+            {/* <CartContext.Provider value={{name : "Gourav Kadyan"}}> */}
             <Navigation />
             <Routes>
                 <Route exact path="/" element={<Home/>} />
@@ -16,6 +23,7 @@ function App(){
                 <Route path="/product/:_id" element={<Detail/>}></Route>
                 <Route path="/cart" element={<Cart/>}></Route>
             </Routes>
+            {/* </CartContext.Provider> */}
         </Router>
     </>
 }
