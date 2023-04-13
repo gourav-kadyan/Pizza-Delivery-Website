@@ -11,7 +11,9 @@ function App(){
     const [cart, setCart ] = useState({})
     useEffect(() => {
         const cart = window.localStorage.getItem('cart')
-    },[])
+        setCart(JSON.parse(cart))
+        
+    },[])//call in every refresh include first page load
 
     useEffect(() => {
         window.localStorage.setItem('cart', JSON.stringify(cart))  //update when cart changes

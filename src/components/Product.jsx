@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { CartContext } from "../CartContext";
 const Product = (props) => {
 
+  const [ isAdding, setIsAdding] = useState(false)
+
   const { cart, setCart } = useContext(CartContext);
 
   const addtocart = (event, product) => {
+
+
     event.preventDefault();
     let _cart = { ...cart };
 
@@ -22,10 +26,16 @@ const Product = (props) => {
     }
 
     if(!_cart.totalItems){
-        _cart.totalItems = 0;
+        _cart.totalItems =0;
     }
     _cart.totalItems += 1;
     setCart(_cart);
+
+    setIsAdding(true)
+
+    setTimeout(() => {
+      setIsAdding(false)
+    }, 1000);
 
     console.log(product);
   };
@@ -47,9 +57,9 @@ const Product = (props) => {
             onClick={(e) => {
               addtocart(e, props.product);
             }}
-            className="bg-yellow-500 py-1 px-4 font-bold rounded-full"
+            className={`${isAdding ? 'bg-green-500' : 'bg-yellow-500'} py-1 px-4 font-bold rounded-full`}
           >
-            ADD
+            ADD{isAdding ? 'ED' : ''}
           </button>
         </div>
       </div>
