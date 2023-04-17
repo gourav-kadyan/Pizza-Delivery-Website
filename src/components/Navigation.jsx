@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { CartContext } from '../CartContext'
 
 const Navigation = () => {
-    // const [ cart ] = useContext(CartContext)
+    const { cart } = useContext(CartContext)
 
     const cartstyle = {
         background : '#F59E0D',
@@ -24,7 +24,7 @@ const Navigation = () => {
                 <li className='ml-5'>
                     <Link to="/cart">
                         <div style={cartstyle}>
-                            <span className="mr-2">10</span>
+                            <span className="mr-2">{ cart.totalItems }</span>
                             <img src="/images/cart.png" alt="cart-icon" />
                         </div>
                     </Link>
