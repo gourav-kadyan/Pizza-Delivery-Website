@@ -8,36 +8,22 @@ const Product = (props) => {
   const [ isAdding, setIsAdding] = useState(false)
 
   const { cart, setCart } = useContext(CartContext);
+  // const [data, setData] = useState([])
 
   const addtocart = (event, product) => {
 
 
     event.preventDefault();
-    let _cart = { ...cart };
-
-    if (!_cart.items) {
-      _cart.items = {};
-    }
-
-    if (_cart.items[product._id]) {
-      _cart.items[product._id] += 1;//if already present so increment items to add 
-    } else {
-      _cart.items[product._id] = 1;//if this is the first time the id clicked 
-    }
-
-    if(!_cart.totalItems){
-        _cart.totalItems =0;
-    }
-    _cart.totalItems += 1;
-    setCart(_cart);
-
+    let arr=[...cart,product]
+    setCart(arr);
+    //console.log(cart);
     setIsAdding(true)
 
-    setTimeout(() => {
-      setIsAdding(false)
-    }, 1000);
+    // setTimeout(() => {
+    //   setIsAdding(false)
+    // }, 1000);
 
-    console.log(product);
+    //console.log(product);
   };
 
 
@@ -53,7 +39,8 @@ const Product = (props) => {
         </div>
         <div className="flex justify-between items-center mt-4">
           <span>₹ {props.product.price}</span>
-          <button
+          <button 
+            disabled = {isAdding}
             onClick={(e) => {
               addtocart(e, props.product);
             }}
