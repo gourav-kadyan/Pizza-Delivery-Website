@@ -14,6 +14,7 @@ const Product = (props) => {
 
 
     event.preventDefault();
+    product.val = 1;
     let arr=[...cart,product]
     setCart(arr);
     //console.log(cart);

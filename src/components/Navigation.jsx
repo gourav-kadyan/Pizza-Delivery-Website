@@ -24,7 +24,7 @@ const Navigation = () => {
                 <li className='ml-5'>
                     <Link to="/cart">
                         <div style={cartstyle}>
-                            <span className="mr-2">{ cart.totalItems }</span>
+                            <span className="mr-2">{ cart.length }</span>
                             <img src="/images/cart.png" alt="cart-icon" />
                         </div>
                     </Link>
