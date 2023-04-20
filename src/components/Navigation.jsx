@@ -19,7 +19,7 @@ const Navigation = () => {
             </Link>
             <ul className="flex items-center">
                 <li><Link to="/">Home</Link></li>
-                <li className='ml-5'><Link to="/about">About</Link></li>
+                {/* <li className='ml-5'><Link to="/about">About</Link></li> */}
                 <li className='ml-5'><Link to="/products">Products</Link></li>
                 <li className='ml-5'>
                     <Link to="/cart">
